@@ -76,7 +76,7 @@ public class CompressString2 {
 
     public static void main(String[] args) {
         CompressString2 c = new CompressString2();
-        String res = c.compress("hhhhhhhhhhhhhhhhhhhhhxxxxxxxxxxxxxxaaaaaaaaaddddfooooooooooooll");
+        String res = c.compress("aacbbb");
         System.out.println(res);
     }
 }
