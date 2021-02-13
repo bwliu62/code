@@ -1,4 +1,5 @@
 package recursion2;
+
 /*
 Reverse pairs of elements in a singly-linked list.
 
@@ -11,8 +12,8 @@ L = 1 -> 2 -> 3 -> null, after reverse is 2 -> 1 -> 3 -> null
 * **/
 public class ReverseLinkedListInPairs {
     static class ListNode {
-        private int value;
-        private ListNode next;
+        public int value;
+        public ListNode next;
 
         public ListNode(int value) {
             this.value = value;
