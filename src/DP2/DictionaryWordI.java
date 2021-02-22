@@ -34,9 +34,11 @@ public class DictionaryWordI {
             for (int j = 0; j < i; j++) {
                 // cut at the left of input[j].
                 // check the subproblem and check the rest of the string.
-                System.out.println("i: " + i + ", j:" + j + " " + input.substring(j, i));
+                System.out.println(input);
+                System.out.println("j: " + j + ", i:" + i + " " + "左大段查表：M[j]: " + canBreak[j] + ", check dic for subString (右小段): "
+                        + input.substring(j, i) + "是否在dic内： " + dicSet.contains(input.substring(j, i)));
                 if (dicSet.contains(input.substring(j, i)) && canBreak[j]) {
-                    System.out.println("enter if, " + "i: " + i + ", j: " + j);
+                    System.out.println("enter if, " + "j: " + j + ", i: " + i);
                     canBreak[i] = true;
                     break;
                 }
@@ -61,4 +63,67 @@ public class DictionaryWordI {
         boolean res = d.canBreak(input, dict);
         System.out.println(res);
     }
+    /*
+    * robcatd
+    j: 0, i:1 左大段查表：M[j]: true, check dic for subString (右小段): r是否在dic内： false
+    ======
+    robcatd
+    j: 0, i:2 左大段查表：M[j]: true, check dic for subString (右小段): ro是否在dic内： false
+    robcatd
+    j: 1, i:2 左大段查表：M[j]: false, check dic for subString (右小段): o是否在dic内： false
+    ======
+    robcatd
+    j: 0, i:3 左大段查表：M[j]: true, check dic for subString (右小段): rob是否在dic内： true
+    enter if, j: 0, i: 3
+    ======
+    robcatd
+    j: 0, i:4 左大段查表：M[j]: true, check dic for subString (右小段): robc是否在dic内： false
+    robcatd
+    j: 1, i:4 左大段查表：M[j]: false, check dic for subString (右小段): obc是否在dic内： false
+    robcatd
+    j: 2, i:4 左大段查表：M[j]: false, check dic for subString (右小段): bc是否在dic内： false
+    robcatd
+    j: 3, i:4 左大段查表：M[j]: true, check dic for subString (右小段): c是否在dic内： false
+    ======
+    robcatd
+    j: 0, i:5 左大段查表：M[j]: true, check dic for subString (右小段): robca是否在dic内： false
+    robcatd
+    j: 1, i:5 左大段查表：M[j]: false, check dic for subString (右小段): obca是否在dic内： false
+    robcatd
+    j: 2, i:5 左大段查表：M[j]: false, check dic for subString (右小段): bca是否在dic内： false
+    robcatd
+    j: 3, i:5 左大段查表：M[j]: true, check dic for subString (右小段): ca是否在dic内： false
+    robcatd
+    j: 4, i:5 左大段查表：M[j]: false, check dic for subString (右小段): a是否在dic内： false
+    ======
+    robcatd
+    j: 0, i:6 左大段查表：M[j]: true, check dic for subString (右小段): robcat是否在dic内： false
+    robcatd
+    j: 1, i:6 左大段查表：M[j]: false, check dic for subString (右小段): obcat是否在dic内： false
+    robcatd
+    j: 2, i:6 左大段查表：M[j]: false, check dic for subString (右小段): bcat是否在dic内： false
+    robcatd
+    j: 3, i:6 左大段查表：M[j]: true, check dic for subString (右小段): cat是否在dic内： true
+    enter if, j: 3, i: 6
+    ======
+    robcatd
+    j: 0, i:7 左大段查表：M[j]: true, check dic for subString (右小段): robcatd是否在dic内： false
+    robcatd
+    j: 1, i:7 左大段查表：M[j]: false, check dic for subString (右小段): obcatd是否在dic内： false
+    robcatd
+    j: 2, i:7 左大段查表：M[j]: false, check dic for subString (右小段): bcatd是否在dic内： false
+    robcatd
+    j: 3, i:7 左大段查表：M[j]: true, check dic for subString (右小段): catd是否在dic内： false
+    robcatd
+    j: 4, i:7 左大段查表：M[j]: false, check dic for subString (右小段): atd是否在dic内： false
+    robcatd
+    j: 5, i:7 左大段查表：M[j]: false, check dic for subString (右小段): td是否在dic内： false
+    robcatd
+    j: 6, i:7 左大段查表：M[j]: true, check dic for subString (右小段): d是否在dic内： true
+    enter if, j: 6, i: 7
+    ======
+    true
+    * */
+
+
 }
