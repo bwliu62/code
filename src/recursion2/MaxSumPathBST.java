@@ -8,6 +8,17 @@ Find the maximum possible sum from any leaf node to another leaf node.
 The maximum sum path may or may not go through root.
 
 Expected time complexity is O(n).
+
+三部曲：
+1. what do you want from your left child and right child?
+    left : maximum "root to leaf" path sum of left subtree
+    right : maximum "root to leaf" path sum of right subtree
+2. what should you do in current layer?
+    1)calculate left + right + root.val
+    2)update global max if possible
+3. what do you report to  your parent?
+    maximum path sum from root to leaf
+    i.e. return max(left, right) + root.val  (be careful about the case where one side child = null)
 * **/
 public class MaxSumPathBST {
     public int maxPathSum(TreeNode root) {
@@ -20,7 +31,7 @@ public class MaxSumPathBST {
         if (node == null) {
             return 0; //
         }
-        if (node.left == null && node.right == null) {
+        if (node.left == null && node.right == null) { // 到叶子节点了
             return node.key;
         }
 
