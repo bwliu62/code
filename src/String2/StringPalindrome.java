@@ -70,8 +70,8 @@ public class StringPalindrome {
         for (int i = 2; i < M.length; i++) {
             int minCutForI = Integer.MAX_VALUE;
             for (int j = 0; j < i; j++) {
-                if (isPalindrome(array, j, i - 1)) {
-                    if (j == 0) {
+                if (isPalindrome(array, j, i - 1)) { // 右小段 j -> [i - 1]
+                    if (j == 0) { // 一刀不切的时候，已经是palindrome了
                         minCutForI = 0;
                         break;
                     } else {
