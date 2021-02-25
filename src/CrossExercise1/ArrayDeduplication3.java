@@ -1,6 +1,7 @@
 package CrossExercise1;
 
 import java.util.Arrays;
+
 /*
 Given a sorted integer array, remove duplicate elements. For each group of elements with the same value do not keep any of them. Do this in-place, using the left side of the original array and and maintain the relative order of the elements of the array. Return the array after deduplication.
 
@@ -13,6 +14,22 @@ Examples
 * **/
 public class ArrayDeduplication3 {
     public int[] dedup(int[] array) {
+        int fast = 0;
+        int slow = 0;
+        while (fast < array.length) {
+            int fast2 = fast + 1;
+            while (fast2 < array.length && array[fast2] == array[fast]) {
+                fast2++;
+            }
+            if (fast2 - fast == 1) {
+                array[slow++] = array[fast];
+            }
+            fast = fast2;
+        }
+        return Arrays.copyOf(array, slow);
+    }
+
+    public int[] dedup2(int[] array) {
         // Write your solution here
         if (array == null || array.length == 0) {
             return array;
@@ -44,8 +61,9 @@ public class ArrayDeduplication3 {
         return Arrays.copyOf(array, flag ? end : end + 1);
     }
 
+
     public static void main(String[] args) {
-        int[] arr = {1,1,2,3,3,4,5,5,5};
+        int[] arr = {1, 1, 2, 3, 3, 4, 5, 5, 5};
         ArrayDeduplication3 a = new ArrayDeduplication3();
         for (int i : a.dedup(arr)
         ) {
