@@ -7,23 +7,23 @@ import java.util.Map;
 
 /**
  * The given two nodes are not guaranteed to be in the binary tree
- * <p>
+ *
  * Examples
- * <p>
- * 5
- * <p>
- * /   \
- * <p>
- * 9     12
- * <p>
- * /  \      \
- * <p>
- * 2    3      14
- * <p>
+ *
+ *          5
+ *
+ *        /   \
+ *
+ *      9     12
+ *
+ *    /  \      \
+ *
+ *  2    3      14
+ *
  * The lowest common ancestor of 2 and 14 is 5
- * <p>
+ *
  * The lowest common ancestor of 2 and 9 is 9
- * <p>
+ *
  * The lowest common ancestor of 2 and 8 is null (8 is not in the tree)
  */
 class TreeNodeP {
