@@ -55,17 +55,19 @@ public class LCAWithKnarryTree {
             return root;
         }
 
-        KnaryTreeNode result = null;
-        for (KnaryTreeNode i : root.children) { // step 1
-            KnaryTreeNode subResult = lowestCommonAncestor(i, a, b);
+        KnaryTreeNode found = null;
+        for (KnaryTreeNode i : root.children) {
+            KnaryTreeNode node = lowestCommonAncestor(i, a, b);
 
-            if (result != null) {               // step 2
-                if (subResult != null) {
-                    return root;
-                }
-                result = subResult;
+            if (node == null) {
+                continue;
+            }
+            if (found == null) { // 进入这个if说明至少找到了1个node a or b
+                found = node;
+            } else {            // step 3： 如果found ！= null， 又进入这个else ， 说明找到两个node，return root
+                return root;
             }
         }
-        return result;                          // step 3
+        return found;       // step 2
     }
 }
