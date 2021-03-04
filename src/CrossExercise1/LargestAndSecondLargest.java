@@ -8,7 +8,7 @@ import java.util.*;
  * Assumptions:
  * The given array is not null and has length of at least 2
  * Examples
- * {2, 1, 5, 4, 3}, the largest number is 5 and 2nd largest number is 4.
+ * {2, 1, 5, 4, 3}, the largest number is 5 and 2nd largest number is 4.。
  */
 public class LargestAndSecondLargest {
     // the Element class will be used to store the original value in the array and the values compared to it.
