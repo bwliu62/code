@@ -38,4 +38,10 @@ public class TwoSumWithAllPair1 {
         }
         return res;
     }
+
+    public static void main(String[] args) {
+        TwoSumWithAllPair1 t = new TwoSumWithAllPair1();
+        int[] arr = {1, 3, 2, 4};
+        List<List<Integer>> res = t.allPairs(arr, 5);
+    }
 }
