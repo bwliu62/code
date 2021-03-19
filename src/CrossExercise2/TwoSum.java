@@ -1,5 +1,6 @@
 package CrossExercise2;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -36,6 +37,22 @@ public class TwoSum {
         return false;
     }
 
-    // Method 2 : TO DO  : TWO pointer
+    // Method 2 : TWO pointer
     // TC O(N)  SC O(1)
+    public boolean existSum2(int[] array, int target) {
+        Arrays.sort(array);
+        int left = 0;
+        int right = array.length - 1;
+        while (left < right) {
+            int sum = array[left] + array[right];
+            if (sum == target) {
+                return true;
+            } else if (sum < target) {
+                left++;
+            } else {
+                right--;
+            }
+        }
+        return false;
+    }
 }
