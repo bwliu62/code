@@ -1,4 +1,4 @@
-package DFS3;
+package recursion3;
 /**
  * Given a binary tree in which each node contains an integer number. Find the maximum possible path sum from a leaf to root.
  *
@@ -26,6 +26,15 @@ package DFS3;
  *
  * The maximum path sum is 10 + 7 = 17.
  * */
+class TreeNode {
+    public int key;
+    public TreeNode left;
+    public TreeNode right;
+
+    public TreeNode(int key) {
+        this.key = key;
+    }
+}
 public class MaxPathSumFromLeafToRoot {
     // Method 1 : Pass down the prefix sum.
     public int maxPathSum(TreeNode root) {
