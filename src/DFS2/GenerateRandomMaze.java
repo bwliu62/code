@@ -22,6 +22,36 @@ package DFS2;
  *
  *         0  0  0  0  0
  *
+ *
+ *  TC = O(m*n)
+ * 题意要求生成的maze，由0组成连线的通路必须要是单线状的，这样任意两个0之间才能有唯一一种到达的关系，比如：
+ *
+ * 0 0 0
+ *
+ * 1 1 0
+ *
+ * 0 0 0
+ *
+ * 但如果某个部分生成了一片矩阵状的0，那么任意两个0之间的到达关系会不至于一种，就违法题意了，比如：
+ *
+ * 0 0 1
+ *
+ * 0 0 1
+ *
+ * 1 1 1
+ *
+ * 所以这个题的关键就是，每次必须往外走两步(advance by two steps), 以保证0组成一个线状的通路，而不是每次往外走一步which会导致0形成矩阵从而变成连成一大片的通路。
+ *
+ *
+ * 初始化
+ *
+ * 0 1 1
+ *
+ * 1 1 1
+ *
+ * 1 1 1
+ *
+ * 除了左上起点都是1(1既表示wall，也表示not-visited), 最后无路可走(四个方向两步之外的点都不是1)即表示dfs搜索结束了
  */
 
 public class GenerateRandomMaze {
@@ -101,5 +131,11 @@ public class GenerateRandomMaze {
             return y + times * deltaY;
         }
 
+    }
+
+    public static void main(String[] args) {
+        GenerateRandomMaze g = new GenerateRandomMaze();
+        int n = 5;
+        int[][] maze = g.maze(n);
     }
 }
